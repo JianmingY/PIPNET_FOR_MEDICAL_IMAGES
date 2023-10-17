@@ -164,6 +164,7 @@ def visualize_topk(net, projectloader, num_classes, device, foldername, args: ar
 def visualize(net, projectloader, num_classes, device, foldername, args: argparse.Namespace):
     print("Visualizing prototypes...", flush=True)
     dir = os.path.join(args.log_dir, foldername)
+    print("dir:",dir)
     if not os.path.exists(dir):
         os.makedirs(dir)
 
@@ -253,6 +254,10 @@ def visualize(net, projectloader, num_classes, device, foldername, args: argpars
                     tensors_per_prototype[p].append((img_tensor_patch, found_max))
                     
                     save_path = os.path.join(dir, "prototype_%s")%str(p)
+                    print("save_path",save_path)
+                    print("imglabel",imglabel)
+                    print("found_max",found_max)
+                    print("img_to_open",img_to_open)
                     if not os.path.exists(save_path):
                         os.makedirs(save_path)
                     draw = D.Draw(image)
@@ -307,4 +312,4 @@ def get_img_coordinates(img_size, softmaxes_shape, patchsize, skip, h_idx, w_idx
         w_coor_min = img_size-patchsize
 
     return h_coor_min, h_coor_max, w_coor_min, w_coor_max
-    
+

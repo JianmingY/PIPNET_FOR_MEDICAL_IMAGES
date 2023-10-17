@@ -4,7 +4,7 @@ import numpy as np
 import time
 from PIL import Image
 
-path = './data/CUB_200_2011/'
+path = 'C:/Users/yang/PycharmProjects/PIPNET_FOR_MEDICAL_IMAGES/data/CUB_200_2011/'
 
 time_start = time.time()
 
